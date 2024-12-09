@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const crypto = require("crypto");
 
 const asyncHandler = require("express-async-handler");
 const ApiError = require("../utils/apiError");

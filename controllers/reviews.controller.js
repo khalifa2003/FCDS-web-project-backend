@@ -3,7 +3,7 @@ const asyncHandler = require("express-async-handler");
 
 // Nested route (Create)
 exports.setMovieIdAndUserIdToBody = (req, res, next) => {
-  if (!req.body.product) req.body.product = req.params.productId;
+  if (!req.body.movie) req.body.movie = req.params.movieId;
   if (!req.body.user) req.body.user = req.user._id;
   next();
 };
@@ -11,8 +11,8 @@ exports.setMovieIdAndUserIdToBody = (req, res, next) => {
 // @route   GET /api/v1/reviews
 // @access  Public
 exports.getReviews = asyncHandler(async (req, res) => {
-  const product = req.query.productId;
-  const documents = await Review.find({ product });
+  const movie = req.query.movieId;
+  const documents = await Review.find({ movie });
   res.status(200).json({ results: documents.length, data: documents });
 });
 
@@ -20,7 +20,7 @@ exports.getReviews = asyncHandler(async (req, res) => {
 // @route   GET /api/v1/reviews/:id
 // @access  Public
 exports.getReview = asyncHandler(async (req, res, next) => {
-  const document = await Review.find({ product: req.params.productId });
+  const document = await Review.find({ movie: req.params.movieId });
   if (!document) {
     return next(new ApiError(`No document for this id ${id}`, 404));
   }
