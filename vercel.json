@@ -5,7 +5,13 @@
       "src": "./index.js",
       "use": "@vercel/node"
     },
-    { "src": "**", "use": "@vercel/static" }
+    {
+      "src": "**",
+      "use": "@vercel/nextjs",
+      "config": {
+        "output": "export"
+      }
+    }
   ],
   "routes": [
     { "src": "/api-docs", "dest": "/index.js" },
