@@ -4,12 +4,11 @@
     {
       "src": "./index.js",
       "use": "@vercel/node"
-    }
+    },
+    { "src": "public/**", "use": "@vercel/static" }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
+    { "src": "/api-docs", "dest": "/index.js" },
+    { "src": "/favicon.ico", "dest": "/favicon.ico" }
   ]
 }

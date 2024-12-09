@@ -15,7 +15,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: "https://fcds-backend.vercel.app/",
+        url: "http://localhost:3000",
         description: "Development Server",
       },
       {
