@@ -1,5 +1,5 @@
 const asyncHandler = require("express-async-handler");
-const TVShow = require("../models/tvshow.model"); // TV Show Model
+const TVShow = require("../models/tvShow.model");
 const ApiError = require("../utils/apiError");
 
 // Get all TV shows
