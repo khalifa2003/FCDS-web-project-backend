@@ -5,6 +5,8 @@ const morgan = require("morgan");
 const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const swaggerOptions = require("./utils/swagger");
+const favicon = require("serve-favicon");
+const path = require("path");
 
 dotenv.config({ path: ".env" });
 const ApiError = require("./utils/apiError");
@@ -20,6 +22,9 @@ const mountRoutes = require("./routes/routes");
 // express app
 const app = express();
 app.use(bodyParser.json());
+
+// Middleware to serve favicon
+app.use(favicon(path.join(__dirname, "./favicon.ico")));
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerOptions));
 
