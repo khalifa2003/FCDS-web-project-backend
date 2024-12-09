@@ -20,7 +20,7 @@ const {
   deleteLoggedUserData,
 } = require("../controllers/user.controller");
 
-const authService = require("../controllers/auth-controller");
+const authService = require("../controllers/auth.controller");
 const router = express.Router();
 
 router.get("/getMe", getLoggedUserData, getUser);

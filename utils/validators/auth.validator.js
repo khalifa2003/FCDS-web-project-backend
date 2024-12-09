@@ -1,46 +1,62 @@
-const express = require("express");
+const { check } = require("express-validator");
+const validatorMiddleware = require("../../middlewares/validatorMiddleware");
+const User = require("../../models/user.model");
 
-const {
-  getCategories,
-  getCategory,
-  createCategory,
-  updateCategory,
-  deleteCategory,
-} = require("../services/categoryService");
-const {
-  getCategoryValidator,
-  createCategoryValidator,
-  updateCategoryValidator,
-  deleteCategoryValidator,
-} = require("../utils/validators/categoryValidator");
+exports.signupValidator = [
+  check("fname")
+    .notEmpty()
+    .withMessage("First Name required")
+    .isLength({ min: 3 })
+    .withMessage("Too short User name"),
+  check("lname")
+    .notEmpty()
+    .withMessage("Last Name required")
+    .isLength({ min: 3 })
+    .withMessage("Too short User name"),
+  check("email")
+    .notEmpty()
+    .withMessage("Email required")
+    .isEmail()
+    .withMessage("Invalid email address")
+    .custom((val) =>
+      User.findOne({ email: val }).then((user) => {
+        if (user) {
+          return Promise.reject(new Error("E-mail already in user"));
+        }
+      })
+    ),
 
-const authService = require("../services/authService");
+  check("password")
+    .notEmpty()
+    .withMessage("Password required")
+    .isLength({ min: 6 })
+    .withMessage("Password must be at least 6 characters")
+    .custom((password, { req }) => {
+      if (password !== req.body.passwordConfirm) {
+        throw new Error("Password Confirmation incorrect");
+      }
+      return true;
+    }),
 
-const router = express.Router();
+  check("passwordConfirm")
+    .notEmpty()
+    .withMessage("Password confirmation required"),
 
-router
-  .route("/")
-  .get(getCategories)
-  .post(
-    authService.protect,
-    authService.allowedTo("admin", "manager"),
-    createCategoryValidator,
-    createCategory
-  );
-router
-  .route("/:id")
-  .get(getCategoryValidator, getCategory)
-  .put(
-    authService.protect,
-    authService.allowedTo("admin", "manager"),
-    updateCategoryValidator,
-    updateCategory
-  )
-  .delete(
-    authService.protect,
-    authService.allowedTo("admin"),
-    deleteCategoryValidator,
-    deleteCategory
-  );
+  validatorMiddleware,
+];
 
-module.exports = router;
+exports.loginValidator = [
+  check("email")
+    .notEmpty()
+    .withMessage("Email required")
+    .isEmail()
+    .withMessage("Invalid email address"),
+
+  check("password")
+    .notEmpty()
+    .withMessage("Password required")
+    .isLength({ min: 6 })
+    .withMessage("Password must be at least 6 characters"),
+
+  validatorMiddleware,
+];

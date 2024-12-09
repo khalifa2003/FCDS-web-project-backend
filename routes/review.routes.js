@@ -16,7 +16,7 @@ const {
   setMovieIdAndUserIdToBody,
 } = require("../controllers/reviews.controller");
 
-const authService = require("../controllers/auth-controller");
+const authService = require("../controllers/auth.controller");
 const router = express.Router();
 
 router
