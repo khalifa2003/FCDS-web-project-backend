@@ -1,95 +1,71 @@
 const asyncHandler = require("express-async-handler");
 const Genre = require("../models/genre.model");
+const ApiError = require("../utils/apiError");
 
 // === Create a New Genre ===
 exports.createGenre = asyncHandler(async (req, res) => {
-  try {
-    const { name, description } = req.body;
+  const { name, description } = req.body;
 
-    // Check if the genre already exists
-    const existingGenre = await Genre.findOne({ name });
-    if (existingGenre) {
-      return res.status(400).json({ message: "Genre already exists" });
-    }
-
-    const newGenre = new Genre({ name, description });
-    const savedGenre = await newGenre.save();
-
-    res
-      .status(201)
-      .json({ message: "Genre created successfully", genre: savedGenre });
-  } catch (error) {
-    console.error("Error creating genre:", error.message);
-    res.status(500).json({ message: "Internal Server Error" });
+  // Check if the genre already exists
+  const existingGenre = await Genre.findOne({ name });
+  if (existingGenre) {
+    return res.status(400).json({ message: "Genre already exists" });
   }
+
+  const newGenre = new Genre({ name, description });
+  const savedGenre = await newGenre.save();
+
+  res
+    .status(201)
+    .json({ message: "Genre created successfully", genre: savedGenre });
 });
 
 // === Get All Genres ===
 exports.getAllGenres = asyncHandler(async (req, res) => {
-  try {
-    const genres = await Genre.find();
-    res.status(200).json(genres);
-  } catch (error) {
-    console.error("Error fetching genres:", error.message);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
+  const genres = await Genre.find();
+  res.status(200).json(genres);
 });
 
 // === Get a Genre by ID ===
 exports.getGenreById = asyncHandler(async (req, res) => {
-  try {
-    const { id } = req.params;
+  const { id } = req.params;
 
-    const genre = await Genre.findById(id);
-    if (!genre) {
-      return res.status(404).json({ message: "Genre not found" });
-    }
-
-    res.status(200).json(genre);
-  } catch (error) {
-    console.error("Error fetching genre:", error.message);
-    res.status(500).json({ message: "Internal Server Error" });
+  const genre = await Genre.findById(id);
+  if (!genre) {
+    return next(new ApiError(`Genre not found`, 404));
   }
+
+  res.status(200).json(genre);
 });
 
 // === Update a Genre ===
 exports.updateGenre = asyncHandler(async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { name, description } = req.body;
+  const { id } = req.params;
+  const { name, description } = req.body;
 
-    const updatedGenre = await Genre.findByIdAndUpdate(
-      id,
-      { name, description },
-      { new: true, runValidators: true }
-    );
+  const updatedGenre = await Genre.findByIdAndUpdate(
+    id,
+    { name, description },
+    { new: true, runValidators: true }
+  );
 
-    if (!updatedGenre) {
-      return res.status(404).json({ message: "Genre not found" });
-    }
-
-    res
-      .status(200)
-      .json({ message: "Genre updated successfully", genre: updatedGenre });
-  } catch (error) {
-    console.error("Error updating genre:", error.message);
-    res.status(500).json({ message: "Internal Server Error" });
+  if (!updatedGenre) {
+    return next(new ApiError(`Genre not found`, 404));
   }
+
+  res
+    .status(200)
+    .json({ message: "Genre updated successfully", genre: updatedGenre });
 });
 
 // === Delete a Genre ===
 exports.deleteGenre = asyncHandler(async (req, res) => {
-  try {
-    const { id } = req.params;
+  const { id } = req.params;
 
-    const deletedGenre = await Genre.findByIdAndDelete(id);
-    if (!deletedGenre) {
-      return res.status(404).json({ message: "Genre not found" });
-    }
-
-    res.status(200).json({ message: "Genre deleted successfully" });
-  } catch (error) {
-    console.error("Error deleting genre:", error.message);
-    res.status(500).json({ message: "Internal Server Error" });
+  const deletedGenre = await Genre.findByIdAndDelete(id);
+  if (!deletedGenre) {
+    return next(new ApiError(`Genre not found`, 404));
   }
+
+  res.status(200).json({ message: "Genre deleted successfully" });
 });

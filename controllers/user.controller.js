@@ -1,6 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
+const ApiError = require("../utils/apiError");
 
 // @desc    Get list of users
 // @route   GET /api/v1/users
