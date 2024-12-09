@@ -3,6 +3,8 @@ const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const cors = require("cors");
+const swaggerUi = require("swagger-ui-express");
+const swaggerOptions = require("./utils/swagger");
 
 dotenv.config({ path: ".env" });
 const ApiError = require("./utils/apiError");
@@ -18,6 +20,8 @@ const mountRoutes = require("./routes/routes");
 // express app
 const app = express();
 app.use(bodyParser.json());
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerOptions));
 
 // Enable other domains to access your application
 app.use(cors());
