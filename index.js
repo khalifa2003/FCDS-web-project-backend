@@ -10,7 +10,7 @@ const cors = require("cors");
 
 dotenv.config({ path: ".env" });
 const ApiError = require("./utils/apiError");
-const globalError = require("./utils/apiError");
+const globalError = require("./middlewares/errorMiddleware");
 const dbConnection = require("./config/database");
 
 // Connect with db

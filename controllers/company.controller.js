@@ -1,5 +1,5 @@
-const Company = require("../models/company.model");
 const asyncHandler = require("express-async-handler");
+const Company = require("../models/company.model");
 const ApiError = require("../utils/apiError");
 
 // @desc    Get all companies

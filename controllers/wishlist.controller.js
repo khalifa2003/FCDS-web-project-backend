@@ -1,6 +1,5 @@
 const asyncHandler = require("express-async-handler");
-const User = require("../models/userModel");
-const ApiError = require("../utils/apiError");
+const User = require("../models/user.model");
 
 // @desc    Add Movie to wishlist
 // @route   POST /api/v1/wishlist

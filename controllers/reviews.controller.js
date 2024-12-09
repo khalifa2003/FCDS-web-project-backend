@@ -1,6 +1,6 @@
-const Review = require("../models/review.model");
 const asyncHandler = require("express-async-handler");
 const ApiError = require("../utils/apiError");
+const Review = require("../models/review.model");
 
 // Nested route (Create)
 exports.setMovieIdAndUserIdToBody = (req, res, next) => {

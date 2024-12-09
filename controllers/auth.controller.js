@@ -1,9 +1,8 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-
 const asyncHandler = require("express-async-handler");
-const ApiError = require("../utils/apiError");
 
+const ApiError = require("../utils/apiError");
 const User = require("../models/user.model");
 
 // Helper function to generate JWT token

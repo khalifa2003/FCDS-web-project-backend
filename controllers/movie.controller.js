@@ -1,6 +1,6 @@
 const asyncHandler = require("express-async-handler");
-const Movie = require("../models/movie.model");
 const ApiError = require("../utils/apiError");
+const Movie = require("../models/movie.model");
 
 // GET all movies
 exports.getAllMovies = asyncHandler(async (req, res) => {
