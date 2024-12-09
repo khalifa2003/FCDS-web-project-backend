@@ -1,11 +1,11 @@
 const asyncHandler = require("express-async-handler");
-const TvShow = require("../models/tvshow.model");
+const TVShow = require("../models/tvshow.model"); // TV Show Model
 
 // Get all TV shows
 // @route GET /api/tvshows
 exports.getAllTVShows = asyncHandler(async (req, res) => {
   try {
-    const tvshows = await TvShow.find()
+    const tvshows = await TVShow.find()
       .populate("genres", "name")
       .populate("production_companies", "name logo_path")
       .exec();
@@ -23,7 +23,7 @@ exports.getAllTVShows = asyncHandler(async (req, res) => {
 
 exports.getTVShowById = asyncHandler(async (req, res) => {
   try {
-    const tvshow = await TvShow.findById(req.params.id)
+    const tvshow = await TVShow.findById(req.params.id)
       .populate("genres", "name")
       .populate("production_companies", "name logo_path")
       .populate("cast", "name profile_path")
@@ -45,7 +45,7 @@ exports.getTVShowById = asyncHandler(async (req, res) => {
 // @route POST /api/tvshows
 exports.createTVShow = asyncHandler(async (req, res) => {
   try {
-    const newTVShow = new TvShow(req.body);
+    const newTVShow = new TVShow(req.body);
 
     const savedTVShow = await newTVShow.save();
     res.status(201).json(savedTVShow);
@@ -60,7 +60,7 @@ exports.createTVShow = asyncHandler(async (req, res) => {
 // @route PUT /api/tvshows/:id
 exports.updateTVShow = asyncHandler(async (req, res) => {
   try {
-    const updatedTVShow = await TvShow.findByIdAndUpdate(
+    const updatedTVShow = await TVShow.findByIdAndUpdate(
       req.params.id,
       req.body,
       {
@@ -85,7 +85,7 @@ exports.updateTVShow = asyncHandler(async (req, res) => {
 // @route DELETE /api/tvshows/:id
 exports.deleteTVShow = asyncHandler(async (req, res) => {
   try {
-    const deletedTVShow = await TvShow.findByIdAndDelete(req.params.id).exec();
+    const deletedTVShow = await TVShow.findByIdAndDelete(req.params.id).exec();
 
     if (!deletedTVShow) {
       return res.status(404).json({ message: "TV Show not found" });
