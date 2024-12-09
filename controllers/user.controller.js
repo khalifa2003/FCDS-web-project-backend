@@ -27,7 +27,15 @@ exports.getUser = asyncHandler(async (req, res, next) => {
 // @route   POST  /api/v1/users
 // @access  Private/Admin
 exports.createUser = asyncHandler(async (req, res) => {
-  const newDoc = await User.create(req.body);
+  const { fname, lname, email, password, confirmPassword, role } = req.body;
+  const newDoc = await User.create({
+    fname,
+    lname,
+    email,
+    password,
+    confirmPassword,
+    role,
+  });
   res.status(201).json({ data: newDoc });
 });
 

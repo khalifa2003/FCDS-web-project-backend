@@ -8,7 +8,8 @@ exports.getAllPersons = asyncHandler(async (req, res) => {
   const persons = await Person.find()
     .skip((page - 1) * limit)
     .limit(Number(limit));
-  res.status(200).json({ success: true, data: persons });
+
+  res.status(200).json({ success: true, page, data: persons });
 });
 
 // Get a single person by ID

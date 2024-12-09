@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Leonardo DiCaprio",
+    "biography": "Leonardo Wilhelm DiCaprio is an American actor and film producer known for his intense performances in critically acclaimed films.",
+    "birthday": "1974-11-11",
+    "deathday": null,
+    "place_of_birth": "Los Angeles, California, USA",
+    "profile_path": "https://image.tmdb.org/t/p/w500/wo2hJpn04vbtmh0B9utCFdsQhxM.jpg",
+    "roles": ["Actor", "Producer"],
+    "known_for": ["60e6fe5e34f4b827a0c4d3f2", "60e6fe5e34f4b827a0c4d3f3"],
+    "movie_credits": ["60e6fe5e34f4b827a0c4d3f2", "60e6fe5e34f4b827a0c4d3f3"],
+    "tv_credits": []
+  },
+  {
+    "name": "Christopher Nolan",
+    "biography": "Christopher Edward Nolan is a British-American film director, producer, and screenwriter known for innovative storytelling.",
+    "birthday": "1970-07-30",
+    "deathday": null,
+    "place_of_birth": "London, England, UK",
+    "profile_path": "https://image.tmdb.org/t/p/w500/qJ7yYOw9ezlwJYwAqAKznzvNGRv.jpg",
+    "roles": ["Director", "Writer", "Producer"],
+    "known_for": ["60e6fe5e34f4b827a0c4d3f3", "60e6fe5e34f4b827a0c4d3f4"],
+    "movie_credits": ["60e6fe5e34f4b827a0c4d3f3", "60e6fe5e34f4b827a0c4d3f4"],
+    "tv_credits": []
+  },
+  {
+    "name": "Tom Hardy",
+    "biography": "Edward Thomas Hardy is an English actor and producer known for his versatile performances in films and TV shows.",
+    "birthday": "1977-09-15",
+    "deathday": null,
+    "place_of_birth": "Hammersmith, London, England, UK",
+    "profile_path": "https://image.tmdb.org/t/p/w500/4nE3eYGd4UP8uOYQsnX9Yx6IN14.jpg",
+    "roles": ["Actor", "Producer"],
+    "known_for": ["60e6fe5e34f4b827a0c4d3f5"],
+    "movie_credits": ["60e6fe5e34f4b827a0c4d3f5", "60e6fe5e34f4b827a0c4d3f6"],
+    "tv_credits": ["60e6fe5e34f4b827a0c4d3f7"]
+  },
+  {
+    "name": "Quentin Tarantino",
+    "biography": "Quentin Jerome Tarantino is an American film director, writer, producer, and actor. Known for his stylized filmmaking.",
+    "birthday": "1963-03-27",
+    "deathday": null,
+    "place_of_birth": "Knoxville, Tennessee, USA",
+    "profile_path": "https://image.tmdb.org/t/p/w500/jUqhyLSABjAnjA9mX8wQ8s0u3uk.jpg",
+    "roles": ["Director", "Writer", "Actor"],
+    "known_for": ["60e6fe5e34f4b827a0c4d3f8"],
+    "movie_credits": ["60e6fe5e34f4b827a0c4d3f8", "60e6fe5e34f4b827a0c4d3f9"],
+    "tv_credits": []
+  },
+  {
+    "name": "Margot Robbie",
+    "biography": "Margot Elise Robbie is an Australian actress and producer. She has received critical acclaim for her roles in multiple films.",
+    "birthday": "1990-07-02",
+    "deathday": null,
+    "place_of_birth": "Dalby, Queensland, Australia",
+    "profile_path": "https://image.tmdb.org/t/p/w500/htgslGHLsbfwXyMFXq3nRjOT9Pq.jpg",
+    "roles": ["Actor", "Producer"],
+    "known_for": ["60e6fe5e34f4b827a0c4d3f6"],
+    "movie_credits": ["60e6fe5e34f4b827a0c4d3f6", "60e6fe5e34f4b827a0c4d3f7"],
+    "tv_credits": []
+  }
+]

@@ -1,0 +1,194 @@
+[
+  {
+    "name": "Warner Bros. Pictures",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Warner_Bros._Logo.png",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "Walt Disney Pictures",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Walt_Disney_Pictures_logo.svg",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "Universal Pictures",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/commons/3/36/Universal_Pictures_logo.svg",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "20th Century Studios",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/commons/1/15/20th_Century_Studios_logo.svg",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "Sony Pictures Entertainment",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Sony_Pictures_logo.png",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "Paramount Pictures",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/7/7a/Paramount_Pictures_2010_logo.svg",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "Columbia Pictures",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/9/93/Columbia_Pictures_logo.png",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "Marvel Studios",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Marvel_Studios_2016_logo.svg",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "Pixar Animation Studios",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/2/20/Pixar_logo.png",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "Lionsgate Films",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/commons/8/84/Lionsgate_Logo_2018.svg",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "Legendary Entertainment",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/commons/4/45/Legendary_Entertainment_logo.svg",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "DreamWorks Animation",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/commons/8/87/DreamWorks_Animation_SKG_logo.svg",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "Studio Ghibli",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/2/27/Studio_Ghibli_logo.svg",
+    "origin_country": "JP",
+    "movies": []
+  },
+  {
+    "name": "Toei Animation",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/1/1b/Toei_Animation_logo.svg",
+    "origin_country": "JP",
+    "movies": []
+  },
+  {
+    "name": "Metro-Goldwyn-Mayer",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/4/43/Metro-Goldwyn-Mayer_logo.svg",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "New Line Cinema",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/4/4e/New_Line_Cinema_logo.png",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "DC Films",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/2/24/DC_Films_logo.png",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "Blue Sky Studios",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/d/d0/Blue_Sky_Studios_logo.png",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "Miramax Films",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/commons/5/56/Miramax_logo.svg",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "A24",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/commons/4/4f/A24_logo.png",
+    "origin_country": "US",
+    "movies": []
+  },
+  {
+    "name": "BBC Films",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/commons/e/ef/BBC_Films_logo.png",
+    "origin_country": "GB",
+    "movies": []
+  },
+  {
+    "name": "Eon Productions",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/e/e8/Eon_Productions_logo.png",
+    "origin_country": "GB",
+    "movies": []
+  },
+  {
+    "name": "Working Title Films",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/a/a7/Working_Title_Films_logo.png",
+    "origin_country": "GB",
+    "movies": []
+  },
+  {
+    "name": "Gaumont Film Company",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/d/d8/Gaumont_logo.png",
+    "origin_country": "FR",
+    "movies": []
+  },
+  {
+    "name": "Pathé",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/a/a1/Pathe_logo.png",
+    "origin_country": "FR",
+    "movies": []
+  },
+  {
+    "name": "Canal+",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Logo_Canal%2B.svg",
+    "origin_country": "FR",
+    "movies": []
+  },
+  {
+    "name": "Constantin Film",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/6/6f/Constantin_Film_logo.png",
+    "origin_country": "DE",
+    "movies": []
+  },
+  {
+    "name": "Babelsberg Studio",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/7/7c/Babelsberg_Studio_logo.png",
+    "origin_country": "DE",
+    "movies": []
+  },
+  {
+    "name": "Shaw Brothers Studio",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/c/c2/Shaw_Brothers_Studio_logo.png",
+    "origin_country": "HK",
+    "movies": []
+  },
+  {
+    "name": "CJ Entertainment",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/3/3c/CJ_Entertainment_logo.png",
+    "origin_country": "KR",
+    "movies": []
+  },
+  {
+    "name": "Showbox",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/a/a0/Showbox_logo.png",
+    "origin_country": "KR",
+    "movies": []
+  },
+  {
+    "name": "Goldcrest Films",
+    "logo_path": "https://upload.wikimedia.org/wikipedia/en/0/0b/Goldcrest_Films_logo.png",
+    "origin_country": "GB",
+    "movies": []
+  }
+]

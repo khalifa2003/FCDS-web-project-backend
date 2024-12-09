@@ -1,0 +1,96 @@
+[
+  {
+    "title": "The Dark Knight Trilogy",
+    "overview": "A trilogy about the iconic Batman directed by Christopher Nolan.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/trilogy-poster.jpg",
+    "backdrop_path": "https://image.tmdb.org/t/p/original/trilogy-backdrop.jpg",
+    "movies": [
+      "60e6fe5e34f4b827a0c4d4a1",
+      "60e6fe5e34f4b827a0c4d4a2",
+      "60e6fe5e34f4b827a0c4d4a3"
+    ]
+  },
+  {
+    "title": "The Lord of the Rings Collection",
+    "overview": "An epic fantasy adventure based on the novels by J.R.R. Tolkien.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/lotr-poster.jpg",
+    "backdrop_path": "https://image.tmdb.org/t/p/original/lotr-backdrop.jpg",
+    "movies": [
+      "60e6fe5e34f4b827a0c4d4b1",
+      "60e6fe5e34f4b827a0c4d4b2",
+      "60e6fe5e34f4b827a0c4d4b3"
+    ]
+  },
+  {
+    "title": "The Hobbit Collection",
+    "overview": "The prequel trilogy to The Lord of the Rings, directed by Peter Jackson.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/hobbit-poster.jpg",
+    "backdrop_path": "https://image.tmdb.org/t/p/original/hobbit-backdrop.jpg",
+    "movies": [
+      "60e6fe5e34f4b827a0c4d4c1",
+      "60e6fe5e34f4b827a0c4d4c2",
+      "60e6fe5e34f4b827a0c4d4c3"
+    ]
+  },
+  {
+    "title": "The Marvel Cinematic Universe - Phase 1",
+    "overview": "The beginning of the Marvel Cinematic Universe with iconic superhero movies.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/mcu-phase1-poster.jpg",
+    "backdrop_path": "https://image.tmdb.org/t/p/original/mcu-phase1-backdrop.jpg",
+    "movies": [
+      "60e6fe5e34f4b827a0c4d4d1",
+      "60e6fe5e34f4b827a0c4d4d2",
+      "60e6fe5e34f4b827a0c4d4d3",
+      "60e6fe5e34f4b827a0c4d4d4",
+      "60e6fe5e34f4b827a0c4d4d5"
+    ]
+  },
+  {
+    "title": "The Matrix Trilogy",
+    "overview": "A science fiction action trilogy about humanity's fight against machines.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/matrix-poster.jpg",
+    "backdrop_path": "https://image.tmdb.org/t/p/original/matrix-backdrop.jpg",
+    "movies": [
+      "60e6fe5e34f4b827a0c4d4e1",
+      "60e6fe5e34f4b827a0c4d4e2",
+      "60e6fe5e34f4b827a0c4d4e3"
+    ]
+  },
+  {
+    "title": "Star Wars Original Trilogy",
+    "overview": "The original three movies that launched the Star Wars franchise.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/starwars-poster.jpg",
+    "backdrop_path": "https://image.tmdb.org/t/p/original/starwars-backdrop.jpg",
+    "movies": [
+      "60e6fe5e34f4b827a0c4d4f1",
+      "60e6fe5e34f4b827a0c4d4f2",
+      "60e6fe5e34f4b827a0c4d4f3"
+    ]
+  },
+  {
+    "title": "Harry Potter Collection",
+    "overview": "The magical journey of Harry Potter and his friends at Hogwarts.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/harrypotter-poster.jpg",
+    "backdrop_path": "https://image.tmdb.org/t/p/original/harrypotter-backdrop.jpg",
+    "movies": [
+      "60e6fe5e34f4b827a0c4d4g1",
+      "60e6fe5e34f4b827a0c4d4g2",
+      "60e6fe5e34f4b827a0c4d4g3",
+      "60e6fe5e34f4b827a0c4d4g4",
+      "60e6fe5e34f4b827a0c4d4g5",
+      "60e6fe5e34f4b827a0c4d4g6"
+    ]
+  },
+  {
+    "title": "The Fast & Furious Collection",
+    "overview": "High-speed action franchise about cars, family, and heists.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/fastandfurious-poster.jpg",
+    "backdrop_path": "https://image.tmdb.org/t/p/original/fastandfurious-backdrop.jpg",
+    "movies": [
+      "60e6fe5e34f4b827a0c4d4h1",
+      "60e6fe5e34f4b827a0c4d4h2",
+      "60e6fe5e34f4b827a0c4d4h3",
+      "60e6fe5e34f4b827a0c4d4h4"
+    ]
+  }
+]

@@ -6,9 +6,10 @@ const ApiError = require("../utils/apiError");
 // @route   GET /api/v1/collections
 // @access  Public
 exports.getAllCollections = asyncHandler(async (req, res) => {
+  const { page = 1, limit = 10 } = req.query;
   const collections = await Collection.find()
-    .populate("movies", "title poster_path")
-    .populate("tvShows", "title poster_path");
+    .skip((page - 1) * limit)
+    .populate("movies", "title poster_path");
   res.status(200).json({ results: collections.length, data: collections });
 });
 
@@ -17,9 +18,10 @@ exports.getAllCollections = asyncHandler(async (req, res) => {
 // @access  Public
 exports.getCollectionById = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
-  const collection = await Collection.findById(id)
-    .populate("movies", "title poster_path")
-    .populate("tvShows", "title poster_path");
+  const collection = await Collection.findById(id).populate(
+    "movies",
+    "title poster_path"
+  );
 
   if (!collection) {
     return next(new ApiError(`No collection found with ID: ${id}`, 404));
@@ -32,13 +34,14 @@ exports.getCollectionById = asyncHandler(async (req, res, next) => {
 // @route   POST /api/v1/collections
 // @access  Admin
 exports.createCollection = asyncHandler(async (req, res) => {
-  const { name, description, movies, tvShows } = req.body;
+  const { title, overview, poster_path, backdrop_path, movies } = req.body;
 
   const collection = await Collection.create({
-    name,
-    description,
+    title,
+    overview,
+    poster_path,
+    backdrop_path,
     movies,
-    tvShows,
   });
 
   res.status(201).json({ data: collection });

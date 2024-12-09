@@ -5,7 +5,9 @@ const ApiError = require("../utils/apiError");
 // Get all TV shows
 // @route GET /api/tvshows
 exports.getAllTVShows = asyncHandler(async (req, res) => {
+  const { page = 1, limit = 10 } = req.query;
   const tvshows = await TVShow.find()
+    .skip((page - 1) * limit)
     .populate("genres", "name")
     .populate("production_companies", "name logo_path")
     .exec();
@@ -69,5 +71,5 @@ exports.deleteTVShow = asyncHandler(async (req, res) => {
 
   res
     .status(200)
-    .json({ message: "TV Show deleted successfully", tvshow: deletedTVShow });
+    .json({ message: "TV Show deleted successfully" });
 });

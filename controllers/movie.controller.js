@@ -7,9 +7,10 @@ exports.getAllMovies = asyncHandler(async (req, res) => {
   const { page = 1, limit = 10 } = req.query;
   const movies = await Movie.find()
     .skip((page - 1) * limit)
-    .limit(Number(limit))
     .populate("genres production_companies cast crew");
-  res.status(200).json(movies);
+  res
+    .status(200)
+    .json({ success: true, limit, page, results: movies.length, data: movies });
 });
 
 // GET a single movie by ID

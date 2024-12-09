@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
 const UserSchema = new mongoose.Schema(
   {
@@ -33,7 +34,6 @@ const UserSchema = new mongoose.Schema(
     passwordResetVerified: Boolean,
     role: { type: String, enum: ["user", "manager", "admin"], default: "user" },
     active: { type: Boolean, default: true },
-    wishlist: [{ type: mongoose.Schema.ObjectId, ref: "Product" }],
   },
   { timestamps: true }
 );

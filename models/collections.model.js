@@ -2,10 +2,7 @@ const mongoose = require("mongoose");
 
 const CollectionsSchema = new mongoose.Schema(
   {
-    title: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Collection",
-    },
+    title: { type: String },
     overview: { type: String },
     poster_path: { type: String },
     backdrop_path: { type: String },

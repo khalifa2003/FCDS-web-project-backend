@@ -5,13 +5,7 @@
       "src": "./index.js",
       "use": "@vercel/node"
     },
-    {
-      "src": "**",
-      "use": "@vercel/nextjs",
-      "config": {
-        "output": "export"
-      }
-    }
+    { "src": "**", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/api-docs", "dest": "/index.js" },
@@ -19,14 +13,6 @@
     {
       "src": "/(.*)",
       "dest": "/"
-    },
-    {
-      "src": "/swagger-ui.html",
-      "dest": "/public/swagger-ui.html"
-    },
-    {
-      "src": "/swagger-ui/(.*)",
-      "dest": "/public/swagger-ui/$1"
     }
   ]
 }

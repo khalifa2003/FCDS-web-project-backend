@@ -1,0 +1,237 @@
+[
+  {
+    "name": "Warner Bros. Pictures",
+    "description": "Major American film production and distribution company.",
+    "website": "https://www.warnerbros.com"
+  },
+  {
+    "name": "Universal Pictures",
+    "description": "One of the oldest film studios in Hollywood.",
+    "website": "https://www.universalpictures.com"
+  },
+  {
+    "name": "20th Century Studios",
+    "description": "Film production company now part of Disney.",
+    "website": "https://www.20thcenturystudios.com"
+  },
+  {
+    "name": "Walt Disney Pictures",
+    "description": "Disney's flagship studio for family-oriented movies.",
+    "website": "https://movies.disney.com"
+  },
+  {
+    "name": "Paramount Pictures",
+    "description": "Iconic Hollywood film studio.",
+    "website": "https://www.paramount.com"
+  },
+  {
+    "name": "Sony Pictures Entertainment",
+    "description": "Subsidiary of Sony Corporation focusing on film and TV.",
+    "website": "https://www.sonypictures.com"
+  },
+  {
+    "name": "Lionsgate Films",
+    "description": "American entertainment company specializing in movies and series.",
+    "website": "https://www.lionsgate.com"
+  },
+  {
+    "name": "MGM Studios",
+    "description": "Famous for James Bond and other popular franchises.",
+    "website": "https://www.mgm.com"
+  },
+  {
+    "name": "Columbia Pictures",
+    "description": "A division of Sony Pictures producing major blockbusters.",
+    "website": "https://www.sonypictures.com"
+  },
+  {
+    "name": "DreamWorks Animation",
+    "description": "Known for animated hits like Shrek and Madagascar.",
+    "website": "https://www.dreamworks.com"
+  },
+  {
+    "name": "Illumination Entertainment",
+    "description": "Famous for Despicable Me and Minions franchises.",
+    "website": "https://www.illumination.com"
+  },
+  {
+    "name": "New Line Cinema",
+    "description": "Known for Lord of the Rings and horror films.",
+    "website": "https://www.warnerbros.com"
+  },
+  {
+    "name": "Legendary Pictures",
+    "description": "A production company behind major blockbusters.",
+    "website": "https://www.legendary.com"
+  },
+  {
+    "name": "Focus Features",
+    "description": "Universal's division for indie and art-house films.",
+    "website": "https://www.focusfeatures.com"
+  },
+  {
+    "name": "A24",
+    "description": "Independent entertainment company focusing on unique films.",
+    "website": "https://a24films.com"
+  },
+  {
+    "name": "Studio Ghibli",
+    "description": "Renowned Japanese animation studio.",
+    "website": "https://www.ghibli.jp"
+  },
+  {
+    "name": "Pixar Animation Studios",
+    "description": "Pioneers of CGI-animated feature films.",
+    "website": "https://www.pixar.com"
+  },
+  {
+    "name": "Blumhouse Productions",
+    "description": "Known for horror films like Paranormal Activity.",
+    "website": "https://www.blumhouse.com"
+  },
+  {
+    "name": "Working Title Films",
+    "description": "UK-based production company known for British classics.",
+    "website": "https://www.workingtitlefilms.com"
+  },
+  {
+    "name": "Gaumont Film Company",
+    "description": "Oldest film production company in the world.",
+    "website": "https://www.gaumont.fr"
+  },
+  {
+    "name": "Annapurna Pictures",
+    "description": "Known for high-quality independent films.",
+    "website": "https://www.annapurnapics.com"
+  },
+  {
+    "name": "EuropaCorp",
+    "description": "French film studio specializing in action and thrillers.",
+    "website": "https://www.europacorp.com"
+  },
+  {
+    "name": "Pathé",
+    "description": "Major French film production and distribution company.",
+    "website": "https://www.pathe.com"
+  },
+  {
+    "name": "Relativity Media",
+    "description": "Entertainment company focusing on mid-budget films.",
+    "website": "https://www.relativitymedia.com"
+  },
+  {
+    "name": "The Weinstein Company",
+    "description": "Known for distributing award-winning films.",
+    "website": "https://www.twc.com"
+  },
+  {
+    "name": "Film4 Productions",
+    "description": "UK-based production company for independent films.",
+    "website": "https://www.film4.com"
+  },
+  {
+    "name": "Cinecittà Studios",
+    "description": "Iconic Italian film studio.",
+    "website": "https://cinecittastudios.it"
+  },
+  {
+    "name": "Toho Co., Ltd.",
+    "description": "Japanese studio famous for Godzilla movies.",
+    "website": "https://www.toho.co.jp"
+  },
+  {
+    "name": "Metro-Goldwyn-Mayer",
+    "description": "Classic Hollywood studio known for historic films.",
+    "website": "https://www.mgm.com"
+  },
+  {
+    "name": "RKO Pictures",
+    "description": "Historic American film studio.",
+    "website": "https://www.rko.com"
+  },
+  {
+    "name": "Orion Pictures",
+    "description": "Subsidiary of MGM with focus on indie films.",
+    "website": "https://www.mgm.com/orion"
+  },
+  {
+    "name": "BBC Films",
+    "description": "British production company producing BBC-backed films.",
+    "website": "https://www.bbc.co.uk/bbcfilms"
+  },
+  {
+    "name": "Sony Pictures Classics",
+    "description": "Specializes in distributing independent films.",
+    "website": "https://www.sonyclassics.com"
+  },
+  {
+    "name": "Screen Gems",
+    "description": "Subsidiary of Sony for mid-budget movies.",
+    "website": "https://www.sonypictures.com"
+  },
+  {
+    "name": "STX Entertainment",
+    "description": "Entertainment company producing diverse films.",
+    "website": "https://www.stxentertainment.com"
+  },
+  {
+    "name": "Eros International",
+    "description": "Indian entertainment company producing Bollywood films.",
+    "website": "https://erosnow.com"
+  },
+  {
+    "name": "CJ Entertainment",
+    "description": "Leading South Korean film production company.",
+    "website": "https://www.cj-entertainment.com"
+  },
+  {
+    "name": "Shaw Brothers Studio",
+    "description": "Pioneer in Hong Kong cinema.",
+    "website": "https://shawbrothers.hk"
+  },
+  {
+    "name": "Pinewood Studios",
+    "description": "UK film studio hosting major productions.",
+    "website": "https://www.pinewoodgroup.com"
+  },
+  {
+    "name": "Golan-Globus Productions",
+    "description": "Prolific film studio producing action movies.",
+    "website": "https://www.golan-globus.com"
+  },
+  {
+    "name": "Beta Film GmbH",
+    "description": "German film and TV production company.",
+    "website": "https://www.betafilm.com"
+  },
+  {
+    "name": "Troma Entertainment",
+    "description": "American studio known for low-budget cult films.",
+    "website": "https://www.troma.com"
+  },
+  {
+    "name": "Yash Raj Films",
+    "description": "Leading production studio in Bollywood.",
+    "website": "https://www.yashrajfilms.com"
+  },
+  {
+    "name": "Balaji Motion Pictures",
+    "description": "Indian production house for commercial cinema.",
+    "website": "https://www.balajitelefilms.com"
+  },
+  {
+    "name": "Saban Films",
+    "description": "Independent distributor for action films.",
+    "website": "https://www.sabanfilms.com"
+  },
+  {
+    "name": "Nordisk Film",
+    "description": "Danish film production and distribution company.",
+    "website": "https://www.nordiskfilm.com"
+  },
+  {
+    "name": "Dharma Productions",
+    "description": "Indian production company known for blockbuster films.",
+    "website": "https://www.dharma-production.com"
+  }
+]

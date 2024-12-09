@@ -4,15 +4,15 @@ const ApiError = require("../utils/apiError");
 
 // === Create a New Genre ===
 exports.createGenre = asyncHandler(async (req, res) => {
-  const { name, description } = req.body;
+  const { name, description, website } = req.body;
 
   // Check if the genre already exists
   const existingGenre = await Genre.findOne({ name });
   if (existingGenre) {
-    return res.status(400).json({ message: "Genre already exists" });
+    return next(new ApiError(`Genre already Exists`, 400));
   }
 
-  const newGenre = new Genre({ name, description });
+  const newGenre = new Genre({ name, description, website });
   const savedGenre = await newGenre.save();
 
   res
@@ -41,11 +41,11 @@ exports.getGenreById = asyncHandler(async (req, res) => {
 // === Update a Genre ===
 exports.updateGenre = asyncHandler(async (req, res) => {
   const { id } = req.params;
-  const { name, description } = req.body;
+  const { name, description, website } = req.body;
 
   const updatedGenre = await Genre.findByIdAndUpdate(
     id,
-    { name, description },
+    { name, description, website },
     { new: true, runValidators: true }
   );
 

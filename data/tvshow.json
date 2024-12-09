@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Breaking Bad",
+    "original_name": "Breaking Bad",
+    "overview": "A high school chemistry teacher turned methamphetamine producer partners with a former student.",
+    "first_air_date": "2008-01-20",
+    "last_air_date": "2013-09-29",
+    "status": "Ended",
+    "language": "en",
+    "poster_path": "https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg",
+    "backdrop_path": "https://image.tmdb.org/t/p/w1280/w2RrAgPvIjDL3M0C8owSENEny3V.jpg",
+    "genres": [],
+    "networks": [
+      {
+        "name": "AMC",
+        "logo_path": "https://image.tmdb.org/t/p/w200/9yKCJTOh9m3nRpl1aZgG9iFpRU.jpg",
+        "country": "US"
+      }
+    ],
+    "production_companies": [],
+    "cast": [],
+    "crew": [],
+    "seasons": [
+      {
+        "season_number": 1,
+        "episode_count": 7,
+        "air_date": "2008-01-20",
+        "poster_path": "https://image.tmdb.org/t/p/w500/tm1zK3ImTbGqaWXyn95AghDCiIt.jpg",
+        "overview": "The first season introduces Walter White, a chemistry teacher diagnosed with cancer, and his student Jesse Pinkman."
+      }
+    ],
+    "popularity": 90.5
+  },
+  {
+    "name": "Stranger Things",
+    "original_name": "Stranger Things",
+    "overview": "A group of young friends discovers a dark secret as their friend disappears in a small town.",
+    "first_air_date": "2016-07-15",
+    "last_air_date": "2022-05-27",
+    "status": "Airing",
+    "language": "en",
+    "poster_path": "https://image.tmdb.org/t/p/w500/x2LSRK2Cm7MZhjluni1msVJ3wDF.jpg",
+    "backdrop_path": "https://image.tmdb.org/t/p/w1280/56v2KjBlU4XaOv9rVYEQypROD7P.jpg",
+    "genres": [],
+    "networks": [
+      {
+        "name": "Netflix",
+        "logo_path": "https://image.tmdb.org/t/p/w200/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+        "country": "US"
+      }
+    ],
+    "production_companies": [],
+    "cast": [],
+    "crew": [],
+    "seasons": [
+      {
+        "season_number": 1,
+        "episode_count": 8,
+        "air_date": "2016-07-15",
+        "poster_path": "https://image.tmdb.org/t/p/w500/wmaZ5Q7ryGs1zjW0rlOVoEX0T8c.jpg",
+        "overview": "When a young boy goes missing, his friends and family uncover a sinister mystery involving a strange girl."
+      }
+    ],
+    "popularity": 120.3
+  },
+  {
+    "name": "Game of Thrones",
+    "original_name": "Game of Thrones",
+    "overview": "Noble families vie for control of the Iron Throne in the land of Westeros.",
+    "first_air_date": "2011-04-17",
+    "last_air_date": "2019-05-19",
+    "status": "Ended",
+    "language": "en",
+    "poster_path": "https://image.tmdb.org/t/p/w500/1XS1oqL89opfnbLl8WnZY1O8PVF.jpg",
+    "backdrop_path": "https://image.tmdb.org/t/p/w1280/gwPSoYUHAKmdyVywgLpKKA4BjRr.jpg",
+    "genres": [],
+    "networks": [
+      {
+        "name": "HBO",
+        "logo_path": "https://image.tmdb.org/t/p/w200/tuomPhY2UtuPTqqFnKMVHvSb724.png",
+        "country": "US"
+      }
+    ],
+    "production_companies": [],
+    "cast": [],
+    "crew": [],
+    "seasons": [
+      {
+        "season_number": 1,
+        "episode_count": 10,
+        "air_date": "2011-04-17",
+        "poster_path": "https://image.tmdb.org/t/p/w500/zwaj4egrhnXOBIit1tyb4Sbt3KP.jpg",
+        "overview": "The first season focuses on the power struggle between noble families in Westeros."
+      }
+    ],
+    "popularity": 110.0
+  },
+  {
+    "name": "The Mandalorian",
+    "original_name": "The Mandalorian",
+    "overview": "A lone bounty hunter in the Star Wars universe protects a mysterious child.",
+    "first_air_date": "2019-11-12",
+    "last_air_date": "2023-03-01",
+    "status": "Airing",
+    "language": "en",
+    "poster_path": "https://image.tmdb.org/t/p/w500/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg",
+    "backdrop_path": "https://image.tmdb.org/t/p/w1280/9ijMGlJKqcslswWUzTEwScm82Gs.jpg",
+    "genres": [],
+    "networks": [
+      {
+        "name": "Disney+",
+        "logo_path": "https://image.tmdb.org/t/p/w200/gJ8VX6JSu3ciXHuC2dDGAo2lvwM.png",
+        "country": "US"
+      }
+    ],
+    "production_companies": [],
+    "cast": [],
+    "crew": [],
+    "seasons": [
+      {
+        "season_number": 1,
+        "episode_count": 8,
+        "air_date": "2019-11-12",
+        "poster_path": "https://image.tmdb.org/t/p/w500/zI0q2ENtE0hZxDCfyS2jeZ9yZK7.jpg",
+        "overview": "The Mandalorian becomes the caretaker of a mysterious child pursued by bounty hunters."
+      }
+    ],
+    "popularity": 130.0
+  },
+  {
+    "name": "The Witcher",
+    "original_name": "The Witcher",
+    "overview": "Geralt of Rivia, a mutated monster-hunter, struggles to find his place in a world of beasts and men.",
+    "first_air_date": "2019-12-20",
+    "last_air_date": "2023-07-27",
+    "status": "Airing",
+    "language": "en",
+    "poster_path": "https://image.tmdb.org/t/p/w500/zrPpUlehQaBf8YX2NrVrKK8IEpf.jpg",
+    "backdrop_path": "https://image.tmdb.org/t/p/w1280/jBJWaqoSCiARWtfV0GlqHrcdidd.jpg",
+    "genres": [],
+    "networks": [
+      {
+        "name": "Netflix",
+        "logo_path": "https://image.tmdb.org/t/p/w200/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+        "country": "US"
+      }
+    ],
+    "production_companies": [],
+    "cast": [],
+    "crew": [],
+    "seasons": [
+      {
+        "season_number": 1,
+        "episode_count": 8,
+        "air_date": "2019-12-20",
+        "poster_path": "https://image.tmdb.org/t/p/w500/8lA1gHiqXQIFaxFfD4Bmy8owcAz.jpg",
+        "overview": "The first season follows Geralt's early journeys as a monster hunter and protector of Ciri."
+      }
+    ],
+    "popularity": 99.0
+  }
+]

@@ -6,7 +6,8 @@ const ApiError = require("../utils/apiError");
 // @route   GET /api/v1/companies
 // @access  Public
 exports.getAllCompanies = asyncHandler(async (req, res, next) => {
-  const companies = await Company.find();
+  const { page = 1, limit = 10 } = req.query;
+  const companies = await Company.find().skip((page - 1) * limit);
   res.status(200).json({
     status: "success",
     results: companies.length,

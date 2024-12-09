@@ -6,12 +6,12 @@ const User = require("../../models/user.model");
 exports.createUserValidator = [
   check("fname")
     .notEmpty()
-    .withMessage("User required")
+    .withMessage("first name required")
     .isLength({ min: 3 })
     .withMessage("Too short User name"),
   check("lname")
     .notEmpty()
-    .withMessage("User required")
+    .withMessage("Second name required")
     .isLength({ min: 3 })
     .withMessage("Too short User name"),
   check("email")
@@ -47,7 +47,7 @@ exports.createUserValidator = [
     .isMobilePhone(["ar-EG", "ar-SA"])
     .withMessage("Invalid phone number only accepted Egy and SA Phone numbers"),
 
-  check("profileImg").optional(),
+  check("image").optional(),
   check("role").optional(),
 
   validatorMiddleware,
