@@ -13,6 +13,14 @@
     {
       "src": "/(.*)",
       "dest": "/"
+    },
+    {
+      "src": "/swagger-ui.html",
+      "dest": "/public/swagger-ui.html"
+    },
+    {
+      "src": "/swagger-ui/(.*)",
+      "dest": "/public/swagger-ui/$1"
     }
   ]
 }
