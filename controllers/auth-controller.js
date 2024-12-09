@@ -7,6 +7,13 @@ const ApiError = require("../utils/apiError");
 
 const User = require("../models/user.model");
 
+// Helper function to generate JWT token
+const generateToken = (userId) => {
+  return jwt.sign({ userId }, process.env.JWT_SECRET_KEY, {
+    expiresIn: process.env.JWT_EXPIRE_TIME,
+  });
+};
+
 // @desc    signup
 // @route   GET /api/v1/auth/signup
 // @access  Public/Admin
@@ -17,9 +24,7 @@ exports.signup = asyncHandler(async (req, res, next) => {
     email: req.body.email,
     password: req.body.password,
   });
-  const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET_KEY, {
-    expiresIn: process.env.JWT_EXPIRE_TIME,
-  });
+  const token = generateToken(user._id);
   res.status(201).json({ data: user, token });
 });
 
@@ -31,9 +36,7 @@ exports.login = asyncHandler(async (req, res, next) => {
   if (!user || !(await bcrypt.compare(req.body.password, user.password))) {
     return next(new ApiError("Invalid email or password", 401));
   }
-  const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET_KEY, {
-    expiresIn: process.env.JWT_EXPIRE_TIME,
-  });
+  const token = generateToken(user._id);
   res.status(200).json({ data: user, token });
 });
 

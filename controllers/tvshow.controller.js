@@ -1,10 +1,9 @@
+const asyncHandler = require("express-async-handler");
 const TVShow = require("../models/tvshow.model"); // TV Show Model
 
-/**
- * Get all TV shows
- * @route GET /api/tvshows
- */
-exports.getAllTVShows = async (req, res) => {
+// Get all TV shows
+// @route GET /api/tvshows
+exports.getAllTVShows = asyncHandler(async (req, res) => {
   try {
     const tvshows = await TVShow.find()
       .populate("genres", "name")
@@ -17,13 +16,12 @@ exports.getAllTVShows = async (req, res) => {
       .status(500)
       .json({ message: "Error fetching TV shows", error: error.message });
   }
-};
+});
 
-/**
- * Get a TV show by ID
- * @route GET /api/tvshows/:id
- */
-exports.getTVShowById = async (req, res) => {
+// Get a TV show by ID
+// @route GET /api/tvshows/:id
+
+exports.getTVShowById = asyncHandler(async (req, res) => {
   try {
     const tvshow = await TVShow.findById(req.params.id)
       .populate("genres", "name")
@@ -41,13 +39,11 @@ exports.getTVShowById = async (req, res) => {
       .status(500)
       .json({ message: "Error fetching TV show", error: error.message });
   }
-};
+});
 
-/**
- * Create a new TV show
- * @route POST /api/tvshows
- */
-exports.createTVShow = async (req, res) => {
+// Create a new TV show
+// @route POST /api/tvshows
+exports.createTVShow = asyncHandler(async (req, res) => {
   try {
     const newTVShow = new TVShow(req.body);
 
@@ -58,13 +54,11 @@ exports.createTVShow = async (req, res) => {
       .status(400)
       .json({ message: "Error creating TV show", error: error.message });
   }
-};
+});
 
-/**
- * Update a TV show by ID
- * @route PUT /api/tvshows/:id
- */
-exports.updateTVShow = async (req, res) => {
+// Update a TV show by ID
+// @route PUT /api/tvshows/:id
+exports.updateTVShow = asyncHandler(async (req, res) => {
   try {
     const updatedTVShow = await TVShow.findByIdAndUpdate(
       req.params.id,
@@ -85,13 +79,11 @@ exports.updateTVShow = async (req, res) => {
       .status(400)
       .json({ message: "Error updating TV show", error: error.message });
   }
-};
+});
 
-/**
- * Delete a TV show by ID
- * @route DELETE /api/tvshows/:id
- */
-exports.deleteTVShow = async (req, res) => {
+// Delete a TV show by ID
+// @route DELETE /api/tvshows/:id
+exports.deleteTVShow = asyncHandler(async (req, res) => {
   try {
     const deletedTVShow = await TVShow.findByIdAndDelete(req.params.id).exec();
 
@@ -107,4 +99,4 @@ exports.deleteTVShow = async (req, res) => {
       .status(500)
       .json({ message: "Error deleting TV show", error: error.message });
   }
-};
+});

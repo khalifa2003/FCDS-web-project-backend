@@ -1,7 +1,8 @@
+const asyncHandler = require("express-async-handler");
 const Genre = require("../models/genre.model");
 
 // === Create a New Genre ===
-exports.createGenre = async (req, res) => {
+exports.createGenre = asyncHandler(async (req, res) => {
   try {
     const { name, description } = req.body;
 
@@ -21,10 +22,10 @@ exports.createGenre = async (req, res) => {
     console.error("Error creating genre:", error.message);
     res.status(500).json({ message: "Internal Server Error" });
   }
-};
+});
 
 // === Get All Genres ===
-exports.getAllGenres = async (req, res) => {
+exports.getAllGenres = asyncHandler(async (req, res) => {
   try {
     const genres = await Genre.find();
     res.status(200).json(genres);
@@ -32,10 +33,10 @@ exports.getAllGenres = async (req, res) => {
     console.error("Error fetching genres:", error.message);
     res.status(500).json({ message: "Internal Server Error" });
   }
-};
+});
 
 // === Get a Genre by ID ===
-exports.getGenreById = async (req, res) => {
+exports.getGenreById = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -49,10 +50,10 @@ exports.getGenreById = async (req, res) => {
     console.error("Error fetching genre:", error.message);
     res.status(500).json({ message: "Internal Server Error" });
   }
-};
+});
 
 // === Update a Genre ===
-exports.updateGenre = async (req, res) => {
+exports.updateGenre = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
     const { name, description } = req.body;
@@ -74,10 +75,10 @@ exports.updateGenre = async (req, res) => {
     console.error("Error updating genre:", error.message);
     res.status(500).json({ message: "Internal Server Error" });
   }
-};
+});
 
 // === Delete a Genre ===
-exports.deleteGenre = async (req, res) => {
+exports.deleteGenre = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -91,4 +92,4 @@ exports.deleteGenre = async (req, res) => {
     console.error("Error deleting genre:", error.message);
     res.status(500).json({ message: "Internal Server Error" });
   }
-};
+});

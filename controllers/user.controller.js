@@ -1,202 +1,139 @@
+const asyncHandler = require("express-async-handler");
 const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 
-// Environment variables (e.g., JWT secret)
-const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret";
+// @desc    Get list of users
+// @route   GET /api/v1/users
+// @access  Private/Admin
+exports.getUsers = asyncHandler(async (req, res) => {
+  const documents = await User.find({});
+  res.status(200).json({ results: documents.length, data: documents });
+});
 
-// Controller Functions
-
-/**
- * Create a new user
- */
-const createUser = async (req, res) => {
-  try {
-    const { username, email, password } = req.body;
-
-    // Check if the email is already registered
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: "Email is already in use." });
-    }
-
-    // Hash the password
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Create a new user
-    const newUser = new User({
-      username,
-      email,
-      password: hashedPassword,
-    });
-
-    await newUser.save();
-    res
-      .status(201)
-      .json({ message: "User created successfully.", user: newUser });
-  } catch (err) {
-    res
-      .status(500)
-      .json({ message: "Error creating user.", error: err.message });
+// @desc    Get specific user by id
+// @route   GET /api/v1/users/:id
+// @access  Private/Admin
+exports.getUser = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  const document = await User.findById(id);
+  if (!document) {
+    return next(new ApiError(`No document for this id ${id}`, 404));
   }
-};
+  res.status(200).json({ data: document });
+});
 
-/**
- * Log in a user
- */
-const loginUser = async (req, res) => {
-  try {
-    const { email, password } = req.body;
+// @desc    Create user
+// @route   POST  /api/v1/users
+// @access  Private/Admin
+exports.createUser = asyncHandler(async (req, res) => {
+  const newDoc = await User.create(req.body);
+  res.status(201).json({ data: newDoc });
+});
 
-    // Find user by email
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(404).json({ message: "User not found." });
+// @desc    Update specific user
+// @route   PUT /api/v1/users/:id
+// @access  Private/Admin
+exports.updateUser = asyncHandler(async (req, res, next) => {
+  const document = await User.findByIdAndUpdate(
+    req.params.id,
+    {
+      fname: req.body.fname,
+      lname: req.body.lname,
+      phone: req.body.phone,
+      email: req.body.email,
+      image: req.body.image,
+      role: req.body.role,
+    },
+    {
+      new: true,
     }
-
-    // Compare passwords
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(401).json({ message: "Invalid credentials." });
-    }
-
-    // Generate JWT token
-    const token = jwt.sign(
-      { id: user._id, username: user.username },
-      JWT_SECRET,
-      { expiresIn: "1d" }
-    );
-
-    res.status(200).json({ message: "Login successful.", token });
-  } catch (err) {
-    res.status(500).json({ message: "Error logging in.", error: err.message });
+  );
+  if (!document) {
+    return next(new ApiError(`No document for this id ${req.params.id}`, 404));
   }
-};
+  res.status(200).json({ data: document });
+});
 
-/**
- * Get user profile
- */
-const getUserProfile = async (req, res) => {
-  try {
-    const { userId } = req.params;
-
-    const user = await User.findById(userId).select("-password");
-    if (!user) {
-      return res.status(404).json({ message: "User not found." });
+exports.changeUserPassword = asyncHandler(async (req, res, next) => {
+  const document = await User.findByIdAndUpdate(
+    req.params.id,
+    {
+      password: await bcrypt.hash(req.body.password, 12),
+    },
+    {
+      new: true,
     }
-
-    res.status(200).json(user);
-  } catch (err) {
-    res
-      .status(500)
-      .json({ message: "Error fetching user profile.", error: err.message });
+  );
+  if (!document) {
+    return next(new ApiError(`No document for this id ${req.params.id}`, 404));
   }
-};
+  res.status(200).json({ data: document });
+});
 
-/**
- * Update user profile
- */
-const updateUserProfile = async (req, res) => {
-  try {
-    const { userId } = req.params;
-    const { username, email, profile_picture } = req.body;
-
-    // Update the user
-    const updatedUser = await User.findByIdAndUpdate(
-      userId,
-      { username, email, profile_picture },
-      { new: true, runValidators: true }
-    );
-
-    if (!updatedUser) {
-      return res.status(404).json({ message: "User not found." });
-    }
-
-    res
-      .status(200)
-      .json({ message: "User updated successfully.", user: updatedUser });
-  } catch (err) {
-    res
-      .status(500)
-      .json({ message: "Error updating user.", error: err.message });
+// @desc    Delete specific user
+// @route   DELETE /api/v1/users/:id
+// @access  Private/Admin
+exports.deleteUser = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  const document = await User.findByIdAndDelete(id);
+  if (!document) {
+    return next(new ApiError(`No document for this id ${id}`, 404));
   }
-};
+  res.status(204).send();
+});
 
-/**
- * Add a movie to the watchlist
- */
-const addToWatchlist = async (req, res) => {
-  try {
-    const { userId } = req.params;
-    const { movieId } = req.body;
+// @desc    Get Logged user data
+// @route   GET /api/v1/users/getMe
+// @access  Private/Protect
+exports.getLoggedUserData = asyncHandler(async (req, res, next) => {
+  req.params.id = req.user._id;
+  next();
+});
 
-    const user = await User.findById(userId);
-    if (!user) {
-      return res.status(404).json({ message: "User not found." });
+// @desc    Update logged user password
+// @route   PUT /api/v1/users/updateMyPassword
+// @access  Private/Protect
+exports.updateLoggedUserPassword = asyncHandler(async (req, res, next) => {
+  // 1) Update user password based user payload (req.user._id)
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      password: await bcrypt.hash(req.body.password, 12),
+      passwordChangedAt: Date.now(),
+    },
+    {
+      new: true,
     }
+  );
 
-    if (user.watchlist.includes(movieId)) {
-      return res
-        .status(400)
-        .json({ message: "Movie is already in the watchlist." });
-    }
+  // 2) Generate token
+  const token = createToken(user._id);
 
-    user.watchlist.push(movieId);
-    await user.save();
+  res.status(200).json({ data: user, token });
+});
 
-    res
-      .status(200)
-      .json({
-        message: "Movie added to watchlist.",
-        watchlist: user.watchlist,
-      });
-  } catch (err) {
-    res
-      .status(500)
-      .json({
-        message: "Error adding movie to watchlist.",
-        error: err.message,
-      });
-  }
-};
+// @desc    Update logged user data (without password, role)
+// @route   PUT /api/v1/users/updateMe
+// @access  Private/Protect
+exports.updateLoggedUserData = asyncHandler(async (req, res, next) => {
+  const updatedUser = await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      fname: req.body.fname,
+      lname: req.body.lname,
+      email: req.body.email,
+      phone: req.body.phone,
+      profileImage: req.body.profileImage,
+    },
+    { new: true }
+  );
+  res.status(200).json({ data: updatedUser });
+});
 
-/**
- * Remove a movie from the watchlist
- */
-const removeFromWatchlist = async (req, res) => {
-  try {
-    const { userId } = req.params;
-    const { movieId } = req.body;
-
-    const user = await User.findById(userId);
-    if (!user) {
-      return res.status(404).json({ message: "User not found." });
-    }
-
-    user.watchlist = user.watchlist.filter((id) => id.toString() !== movieId);
-    await user.save();
-
-    res
-      .status(200)
-      .json({
-        message: "Movie removed from watchlist.",
-        watchlist: user.watchlist,
-      });
-  } catch (err) {
-    res
-      .status(500)
-      .json({
-        message: "Error removing movie from watchlist.",
-        error: err.message,
-      });
-  }
-};
-
-module.exports = {
-  createUser,
-  loginUser,
-  getUserProfile,
-  updateUserProfile,
-  addToWatchlist,
-  removeFromWatchlist,
-};
+// @desc    Deactivate logged user
+// @route   DELETE /api/v1/users/deleteMe
+// @access  Private/Protect
+exports.deleteLoggedUserData = asyncHandler(async (req, res, next) => {
+  await User.findByIdAndUpdate(req.user._id, { active: false });
+  res.status(204).json({ status: "Success" });
+});

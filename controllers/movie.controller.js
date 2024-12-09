@@ -1,8 +1,8 @@
-const Movie = require("../models/movie.model"); // Import the Movie model
-const Genre = require("../models/genre.model"); // Import the Genre model (if needed for references)
+const asyncHandler = require("express-async-handler");
+const Movie = require("../models/movie.model");
 
 // GET all movies
-const getAllMovies = async (req, res) => {
+exports.getAllMovies = asyncHandler(async (req, res) => {
   try {
     const movies = await Movie.find().populate(
       "genres production_companies cast crew"
@@ -13,28 +13,22 @@ const getAllMovies = async (req, res) => {
       .status(500)
       .json({ message: "Error fetching movies", error: error.message });
   }
-};
+});
 
 // GET a single movie by ID
-const getMovieById = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const movie = await Movie.findById(id).populate(
-      "genres production_companies cast crew"
-    );
-    if (!movie) {
-      return res.status(404).json({ message: "Movie not found" });
-    }
-    res.status(200).json(movie);
-  } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Error fetching movie", error: error.message });
+exports.getMovieById = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const movie = await Movie.findById(id).populate(
+    "genres production_companies cast crew"
+  );
+  if (!movie) {
+    return next(new ApiError(`No document for this id ${id}`, 404));
   }
-};
+  res.status(200).json(movie);
+});
 
 // CREATE a new movie
-const createMovie = async (req, res) => {
+exports.createMovie = asyncHandler(async (req, res) => {
   try {
     const newMovie = new Movie(req.body);
     await newMovie.save();
@@ -46,10 +40,10 @@ const createMovie = async (req, res) => {
       .status(400)
       .json({ message: "Error creating movie", error: error.message });
   }
-};
+});
 
 // UPDATE a movie by ID
-const updateMovie = async (req, res) => {
+exports.updateMovie = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
     const updatedMovie = await Movie.findByIdAndUpdate(id, req.body, {
@@ -67,10 +61,10 @@ const updateMovie = async (req, res) => {
       .status(400)
       .json({ message: "Error updating movie", error: error.message });
   }
-};
+});
 
 // DELETE a movie by ID
-const deleteMovie = async (req, res) => {
+exports.deleteMovie = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
     const deletedMovie = await Movie.findByIdAndDelete(id);
@@ -83,45 +77,31 @@ const deleteMovie = async (req, res) => {
       .status(500)
       .json({ message: "Error deleting movie", error: error.message });
   }
-};
+});
 
 // GET movies by genre
-const getMoviesByGenre = async (req, res) => {
+exports.getMoviesByGenre = asyncHandler(async (req, res) => {
   try {
     const { genreId } = req.params;
     const movies = await Movie.find({ genres: genreId }).populate("genres");
     res.status(200).json(movies);
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "Error fetching movies by genre",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "Error fetching movies by genre",
+      error: error.message,
+    });
   }
-};
+});
 
 // GET trending movies (based on popularity)
-const getTrendingMovies = async (req, res) => {
+exports.getTrendingMovies = asyncHandler(async (req, res) => {
   try {
     const movies = await Movie.find().sort({ popularity: -1 }).limit(10);
     res.status(200).json(movies);
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "Error fetching trending movies",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "Error fetching trending movies",
+      error: error.message,
+    });
   }
-};
-
-module.exports = {
-  getAllMovies,
-  getMovieById,
-  createMovie,
-  updateMovie,
-  deleteMovie,
-  getMoviesByGenre,
-  getTrendingMovies,
-};
+});
