@@ -2,11 +2,11 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
-const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const swaggerOptions = require("./utils/swagger");
 const favicon = require("serve-favicon");
 const path = require("path");
+const cors = require("cors");
 
 dotenv.config({ path: ".env" });
 const ApiError = require("./utils/apiError");
@@ -21,6 +21,13 @@ const mountRoutes = require("./routes/routes");
 
 // express app
 const app = express();
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+    method: ["GET", "POST", "DELETE", "PUT"],
+  })
+);
 app.use(bodyParser.json());
 
 // Middleware to serve favicon
@@ -29,7 +36,6 @@ app.use(favicon(path.join(__dirname, "./favicon.ico")));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerOptions));
 
 // Enable other domains to access your application
-app.use(cors());
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
