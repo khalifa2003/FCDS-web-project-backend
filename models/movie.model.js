@@ -27,7 +27,10 @@ const MovieSchema = new mongoose.Schema(
     cast: [{ type: mongoose.Schema.Types.ObjectId, ref: "Person" }],
     crew: [{ type: mongoose.Schema.Types.ObjectId, ref: "Person" }],
     keywords: [{ type: mongoose.Schema.Types.ObjectId, ref: "Keyword" }],
-    collection: { type: mongoose.Schema.Types.ObjectId, ref: "Collection" },
+    movieCollection: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Collection",
+    },
     vote_count: { type: Number, default: 0 },
     vote_average: { type: Number, default: 0.0 },
     popularity: { type: Number, default: 0.0 },

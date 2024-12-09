@@ -1,4 +1,4 @@
-const Collection = require("../models/collection.model"); // Import the Collection model
+const Collection = require("../models/collections.model"); // Import the Collection model
 const asyncHandler = require("express-async-handler");
 const ApiError = require("../utils/apiError");
 
