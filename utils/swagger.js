@@ -18,6 +18,10 @@ const swaggerOptions = {
         url: "http://localhost:3000",
         description: "Development Server",
       },
+      {
+        url: "https://fcds-web-project-backend.vercel.app/",
+        description: "Production Server",
+      },
     ],
     components: {
       schemas: {
