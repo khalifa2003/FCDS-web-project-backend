@@ -36,7 +36,6 @@ app.use(favicon(path.join(__dirname, "./favicon.ico")));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerOptions));
 
 // Enable other domains to access your application
-
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
   console.log(`mode: ${process.env.NODE_ENV}`);

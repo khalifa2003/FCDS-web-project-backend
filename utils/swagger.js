@@ -19,7 +19,7 @@ const swaggerOptions = {
         description: "Development Server",
       },
       {
-        url: "https://fcds-web-project-backend.vercel.app/",
+        url: "https://fcds-backend.vercel.app/",
         description: "Production Server",
       },
     ],
