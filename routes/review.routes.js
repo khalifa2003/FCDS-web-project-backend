@@ -14,7 +14,7 @@ const {
   setMovieIdAndUserIdToBody,
 } = require("../controllers/reviews.controller");
 
-const authService = require("../controllers/auth.controller");
+const authController = require("../controllers/auth.controller");
 const router = express.Router();
 
 /**
@@ -48,8 +48,8 @@ router.route("/").get(getReviews);
 router
   .route("/")
   .post(
-    authService.protect,
-    authService.allowedTo("user"),
+    authController.protect,
+    authController.allowedTo("user"),
     setMovieIdAndUserIdToBody,
     createReviewValidator,
     createReview
@@ -102,8 +102,8 @@ router.route("/:id").get(getReviewValidator, getReview);
 router
   .route("/:id")
   .put(
-    authService.protect,
-    authService.allowedTo("user"),
+    authController.protect,
+    authController.allowedTo("user"),
     updateReviewValidator,
     updateReview
   );
@@ -132,8 +132,8 @@ router
 router
   .route("/:id")
   .delete(
-    authService.protect,
-    authService.allowedTo("user", "manager", "admin"),
+    authController.protect,
+    authController.allowedTo("user", "manager", "admin"),
     deleteReviewValidator,
     deleteReview
   );

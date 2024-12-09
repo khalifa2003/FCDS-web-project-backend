@@ -1,6 +1,6 @@
 const express = require("express");
 
-const authService = require("../controllers/auth-controller");
+const authController = require("../controllers/auth-controller");
 
 const {
   addMovieToWishlist,
@@ -10,7 +10,7 @@ const {
 
 const router = express.Router();
 
-router.use(authService.protect, authService.allowedTo("user"));
+router.use(authController.protect, authController.allowedTo("user"));
 /**
  * @swagger
  * tags:

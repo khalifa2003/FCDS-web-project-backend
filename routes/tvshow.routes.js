@@ -7,7 +7,7 @@ const {
   deleteTVShow,
 } = require("../controllers/tvshow.controller");
 
-const authService = require("../controllers/auth.controller");
+const authController = require("../controllers/auth.controller");
 const router = express.Router();
 
 /**
@@ -74,8 +74,8 @@ router.get("/:id", getTVShowById);
  */
 router.post(
   "/",
-  authService.protect,
-  authService.allowedTo("manager", "admin"),
+  authController.protect,
+  authController.allowedTo("manager", "admin"),
   createTVShow
 );
 
@@ -107,8 +107,8 @@ router.post(
  */
 router.put(
   "/:id",
-  authService.protect,
-  authService.allowedTo("manager", "admin"),
+  authController.protect,
+  authController.allowedTo("manager", "admin"),
   updateTVShow
 );
 
@@ -134,8 +134,8 @@ router.put(
  */
 router.delete(
   "/:id",
-  authService.protect,
-  authService.allowedTo("manager", "admin"),
+  authController.protect,
+  authController.allowedTo("manager", "admin"),
   deleteTVShow
 );
 

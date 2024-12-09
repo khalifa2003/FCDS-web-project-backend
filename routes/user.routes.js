@@ -20,10 +20,10 @@ const {
   deleteLoggedUserData,
 } = require("../controllers/user.controller");
 
-const authService = require("../controllers/auth.controller");
+const authController = require("../controllers/auth.controller");
 const router = express.Router();
 
-router.use(authService.protect);
+router.use(authController.protect);
 
 /**
  * @swagger
@@ -79,7 +79,7 @@ router.put("/updateMe", updateLoggedUserValidator, updateLoggedUserData);
 router.delete("/deleteMe", deleteLoggedUserData);
 
 // Admin
-router.use(authService.allowedTo("admin", "manager"));
+router.use(authController.allowedTo("admin", "manager"));
 /**
  * @swagger
  * /users/changePassword/{id}:
