@@ -41,8 +41,8 @@ router.use(authController.protect);
  *             schema:
  *               $ref: '#/components/schemas/User'
  */
-router.get("/getMe", getLoggedUserData, getUser);
-router.put("/changeMyPassword", updateLoggedUserPassword);
+router.get("/getme", getLoggedUserData, getUser);
+router.put("/changepassword", updateLoggedUserPassword);
 
 /**
  * @swagger
@@ -82,6 +82,40 @@ router.delete("/deleteMe", deleteLoggedUserData);
 router.use(authController.allowedTo("admin", "manager"));
 /**
  * @swagger
+ * /users:
+ *   get:
+ *     summary: Get all users
+ *     description: Retrieve a list of all users. Accessible only to admins or managers.
+ *     tags:
+ *       - Users
+ *     responses:
+ *       200:
+ *         description: A list of users.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/User'
+ *   post:
+ *     summary: Create a new user
+ *     description: Create a new user in the system.
+ *     tags:
+ *       - Users
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/User'
+ *     responses:
+ *       201:
+ *         description: User created successfully.
+ */
+router.route("/").get(getUsers).post(createUserValidator, createUser);
+
+/**
+ * @swagger
  * /users/changePassword/{id}:
  *   put:
  *     summary: Change a user's password
@@ -115,40 +149,6 @@ router.put(
   changeUserPasswordValidator,
   changeUserPassword
 );
-
-/**
- * @swagger
- * /users:
- *   get:
- *     summary: Get all users
- *     description: Retrieve a list of all users. Accessible only to admins or managers.
- *     tags:
- *       - Users
- *     responses:
- *       200:
- *         description: A list of users.
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/User'
- *   post:
- *     summary: Create a new user
- *     description: Create a new user in the system.
- *     tags:
- *       - Users
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/User'
- *     responses:
- *       201:
- *         description: User created successfully.
- */
-router.route("/").get(getUsers).post(createUserValidator, createUser);
 
 /**
  * @swagger

@@ -1,7 +1,14 @@
 const asyncHandler = require("express-async-handler");
+const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const ApiError = require("../utils/apiError");
 const User = require("../models/user.model");
+
+const createToken = (userId) => {
+  return jwt.sign({ userId }, process.env.JWT_SECRET_KEY, {
+    expiresIn: process.env.JWT_EXPIRE_TIME,
+  });
+};
 
 // @desc    Get list of users
 // @route   GET /api/v1/users
@@ -27,16 +34,16 @@ exports.getUser = asyncHandler(async (req, res, next) => {
 // @route   POST  /api/v1/users
 // @access  Private/Admin
 exports.createUser = asyncHandler(async (req, res) => {
-  const { fname, lname, email, password, confirmPassword, role } = req.body;
-  const newDoc = await User.create({
+  const { fname, lname, email, password, role } = req.body;
+
+  const newUser = await User.create({
     fname,
     lname,
     email,
     password,
-    confirmPassword,
     role,
   });
-  res.status(201).json({ data: newDoc });
+  res.status(201).json({ data: newUser });
 });
 
 // @desc    Update specific user
@@ -63,6 +70,21 @@ exports.updateUser = asyncHandler(async (req, res, next) => {
   res.status(200).json({ data: document });
 });
 
+// @desc    Delete specific user
+// @route   DELETE /api/v1/users/:id
+// @access  Private/Admin
+exports.deleteUser = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  const document = await User.findByIdAndDelete(id);
+  if (!document) {
+    return next(new ApiError(`No document for this id ${id}`, 404));
+  }
+  res.status(204).send();
+});
+
+// @desc    Change password
+// @route   GET /api/v1/users/changepassword
+// @access  Private/Protect
 exports.changeUserPassword = asyncHandler(async (req, res, next) => {
   const document = await User.findByIdAndUpdate(
     req.params.id,
@@ -79,18 +101,6 @@ exports.changeUserPassword = asyncHandler(async (req, res, next) => {
   res.status(200).json({ data: document });
 });
 
-// @desc    Delete specific user
-// @route   DELETE /api/v1/users/:id
-// @access  Private/Admin
-exports.deleteUser = asyncHandler(async (req, res, next) => {
-  const { id } = req.params;
-  const document = await User.findByIdAndDelete(id);
-  if (!document) {
-    return next(new ApiError(`No document for this id ${id}`, 404));
-  }
-  res.status(204).send();
-});
-
 // @desc    Get Logged user data
 // @route   GET /api/v1/users/getMe
 // @access  Private/Protect
@@ -103,12 +113,27 @@ exports.getLoggedUserData = asyncHandler(async (req, res, next) => {
 // @route   PUT /api/v1/users/updateMyPassword
 // @access  Private/Protect
 exports.updateLoggedUserPassword = asyncHandler(async (req, res, next) => {
-  // 1) Update user password based user payload (req.user._id)
+  const { currentPassword, passwordConfirm, password } = req.body;
+
+  const isCorrectPassword = await bcrypt.compare(
+    currentPassword,
+    req.user.password
+  );
+  if (!isCorrectPassword) {
+    return next(new ApiError(`Incorrect current password`, 404));
+  }
+  if (currentPassword !== passwordConfirm) {
+    return next(new ApiError(`Password confirmation does not match`, 404));
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 12);
+  passwordChangedAt = new Date();
+
   const user = await User.findByIdAndUpdate(
     req.user._id,
     {
-      password: await bcrypt.hash(req.body.password, 12),
-      passwordChangedAt: Date.now(),
+      password: hashedPassword,
+      passwordChangedAt,
     },
     {
       new: true,
@@ -132,7 +157,7 @@ exports.updateLoggedUserData = asyncHandler(async (req, res, next) => {
       lname: req.body.lname,
       email: req.body.email,
       phone: req.body.phone,
-      profileImage: req.body.profileImage,
+      image: req.body.image,
     },
     { new: true }
   );
